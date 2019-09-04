@@ -2,7 +2,7 @@
   "name": "fitness-tracker",
   "version": "1.0.0",
   "description": "Modern Fitness Tracker built using the MERN stack.",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
