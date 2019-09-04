@@ -5,13 +5,20 @@ const express = require('express'),
 // configuration to have environment variables in dotenv file
 require('dotenv').config();
 
-// create express server with port number
 const app = express();
 const port = process.env.PORT || 5000;
 
-// middleware configuration
+// middleware config
 app.use(cors());
 app.use(express.json());
+
+// mongodb config
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex : true });
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log('MongoDB database connection established successfully.')
+});
 
 // starts the server
 app.listen(port, () => {
